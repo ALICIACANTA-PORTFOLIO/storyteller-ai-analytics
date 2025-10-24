@@ -1,0 +1,158 @@
+# ============================================================================
+# AUDIOMIND - Requirements File
+# ============================================================================
+# Project: AI-Powered Audio Knowledge Intelligence
+# Python: 3.10+
+# Environment: conda env storyteller
+# 
+# Installation:
+#   conda activate storyteller
+#   pip install -r requirements.txt
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# CORE FRAMEWORK
+# ----------------------------------------------------------------------------
+fastapi==0.104.1              # Modern async web framework for API
+uvicorn[standard]==0.24.0     # ASGI server for FastAPI
+pydantic==2.5.0               # Data validation and settings management
+pydantic-settings==2.1.0      # Settings management with Pydantic
+
+# ----------------------------------------------------------------------------
+# AUDIO PROCESSING
+# ----------------------------------------------------------------------------
+openai-whisper==20231117      # OpenAI Whisper for transcription
+faster-whisper==0.10.0        # Optimized Whisper implementation (4x faster)
+librosa==0.10.1               # Audio analysis and feature extraction
+soundfile==0.12.1             # Audio file I/O
+pydub==0.25.1                 # Audio manipulation
+pyannote-audio==3.1.1         # Speaker diarization (optional)
+torch==2.1.0                  # PyTorch for deep learning models
+torchaudio==2.1.0             # PyTorch audio processing
+
+# ----------------------------------------------------------------------------
+# TOPIC MODELING
+# ----------------------------------------------------------------------------
+gensim==4.3.2                 # LDA and topic modeling
+scikit-learn==1.3.2           # ML algorithms and vectorization
+bertopic==0.16.0              # Modern topic modeling with transformers
+sentence-transformers==2.2.2  # Sentence embeddings for BERTopic
+umap-learn==0.5.5             # Dimensionality reduction
+hdbscan==0.8.33               # Clustering for BERTopic
+keybert==0.8.4                # Keyword extraction
+yake==0.4.8                   # Yet Another Keyword Extractor
+
+# ----------------------------------------------------------------------------
+# LLM & RAG
+# ----------------------------------------------------------------------------
+openai==1.3.7                 # OpenAI API client (GPT-4, GPT-4o-mini)
+langchain==0.1.0              # LLM orchestration framework
+langchain-openai==0.0.2       # OpenAI integration for LangChain
+langchain-community==0.0.10   # Community integrations
+chromadb==0.4.18              # Vector database for RAG
+tiktoken==0.5.1               # OpenAI tokenizer
+python-dotenv==1.0.0          # Environment variable management
+
+# ----------------------------------------------------------------------------
+# DATABASE & STORAGE
+# ----------------------------------------------------------------------------
+sqlalchemy==2.0.23            # SQL toolkit and ORM
+psycopg2-binary==2.9.9        # PostgreSQL adapter
+alembic==1.12.1               # Database migrations
+redis==5.0.1                  # Redis client for caching
+
+# ----------------------------------------------------------------------------
+# TASK QUEUE
+# ----------------------------------------------------------------------------
+celery==5.3.4                 # Distributed task queue
+flower==2.0.1                 # Celery monitoring tool
+
+# ----------------------------------------------------------------------------
+# DASHBOARD & VISUALIZATION
+# ----------------------------------------------------------------------------
+streamlit==1.28.2             # Interactive dashboard framework
+plotly==5.18.0                # Interactive visualizations
+pandas==2.1.3                 # Data manipulation
+matplotlib==3.8.2             # Static plots
+seaborn==0.13.0               # Statistical visualizations
+pyLDAvis==3.4.1               # LDA topic visualization
+wordcloud==1.9.3              # Word cloud generation
+
+# ----------------------------------------------------------------------------
+# UTILITIES
+# ----------------------------------------------------------------------------
+python-multipart==0.0.6       # Form data parsing for FastAPI
+aiofiles==23.2.1              # Async file operations
+httpx==0.25.2                 # Async HTTP client
+tenacity==8.2.3               # Retry logic
+loguru==0.7.2                 # Advanced logging
+rich==13.7.0                  # Beautiful terminal output
+tqdm==4.66.1                  # Progress bars
+pyyaml==6.0.1                 # YAML configuration files
+toml==0.10.2                  # TOML configuration files
+
+# ----------------------------------------------------------------------------
+# TESTING
+# ----------------------------------------------------------------------------
+pytest==7.4.3                 # Testing framework
+pytest-asyncio==0.21.1        # Async support for pytest
+pytest-cov==4.1.0             # Coverage plugin
+pytest-mock==3.12.0           # Mocking plugin
+httpx==0.25.2                 # HTTP client for API tests
+faker==20.1.0                 # Fake data generation
+
+# ----------------------------------------------------------------------------
+# CODE QUALITY
+# ----------------------------------------------------------------------------
+black==23.11.0                # Code formatter
+ruff==0.1.6                   # Fast linter
+mypy==1.7.1                   # Static type checker
+pre-commit==3.5.0             # Git hooks framework
+
+# ----------------------------------------------------------------------------
+# DOCUMENTATION
+# ----------------------------------------------------------------------------
+mkdocs==1.5.3                 # Documentation generator
+mkdocs-material==9.4.14       # Material theme for MkDocs
+mkdocstrings[python]==0.24.0  # Auto API documentation
+
+# ----------------------------------------------------------------------------
+# MONITORING & OBSERVABILITY
+# ----------------------------------------------------------------------------
+prometheus-client==0.19.0     # Prometheus metrics
+sentry-sdk[fastapi]==1.38.0   # Error tracking
+
+# ----------------------------------------------------------------------------
+# OPTIONAL: AUDIO ENHANCEMENT
+# ----------------------------------------------------------------------------
+# noisereduce==3.0.0          # Noise reduction (uncomment if needed)
+# webrtcvad==2.0.10           # Voice activity detection
+
+# ----------------------------------------------------------------------------
+# OPTIONAL: ADVANCED NLP
+# ----------------------------------------------------------------------------
+# spacy==3.7.2                # NLP library (uncomment if needed)
+# transformers==4.35.2        # Hugging Face transformers
+
+# ============================================================================
+# NOTES:
+# 
+# 1. GPU Support (Recommended for production):
+#    - Replace torch/torchaudio with CUDA versions:
+#      pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+# 
+# 2. Windows Users:
+#    - If facing issues with pyannote-audio, install Visual C++ Build Tools
+# 
+# 3. Mac M1/M2 Users:
+#    - Use conda for numpy/scipy: conda install numpy scipy
+# 
+# 4. Production Deployment:
+#    - Pin all versions (already done)
+#    - Use pip-tools for dependency management:
+#      pip install pip-tools
+#      pip-compile requirements.in -o requirements.txt
+# 
+# 5. Development:
+#    - Install all optional dependencies for full feature set
+# ============================================================================
